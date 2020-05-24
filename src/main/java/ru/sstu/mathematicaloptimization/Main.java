@@ -2,10 +2,7 @@ package ru.sstu.mathematicaloptimization;
 
 import org.springframework.expression.ExpressionParser;
 import org.springframework.expression.spel.standard.SpelExpressionParser;
-import ru.sstu.mathematicaloptimization.methods.AbstractMethod;
-import ru.sstu.mathematicaloptimization.methods.BisectionMethod;
-import ru.sstu.mathematicaloptimization.methods.DichotomyMethod;
-import ru.sstu.mathematicaloptimization.methods.GoldenSectionMethod;
+import ru.sstu.mathematicaloptimization.methods.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -38,16 +35,22 @@ public class Main {
        Double min = 0.0;
        Double max = 3.0;
         UnaryOperator<Double> func = x -> (x-2)*(x-2);
-
-    /*    Double min = -6.0;
-       Double max = 2.0;
+/*        Double min = -6.0;
+        Double max = 2.0;
         UnaryOperator<Double> func = x -> Math.pow(x + 5, 4);*/
 /*        AbstractMethod method = new DichotomyMethod(func, min, max, 0.0001, true,0.1);
         System.out.println(method.getResult());
         AbstractMethod method2 = new BisectionMethod(func, min, max, 0.0001, true);
         System.out.println(method2.getResult());*/
-        AbstractMethod method3 = new GoldenSectionMethod(func, min, max, 0.0001, true);
+/*        AbstractMethod method3 = new GoldenSectionMethod(func, min, max, 0.0001, false);
         System.out.println(method3.getResult());
+        System.out.println(method3.getCount());
+        AbstractMethod method4 = new FibonacciMethod(func, min, max, 0.0001, false);
+        System.out.println(method4.getResult());
+        System.out.println(method4.getCount());*/
+        AbstractMethod method5 = new PowellMethod(func, min, max, 0.0001, true, 1.0);
+        System.out.println(method5.getResult());
+        System.out.println(method5.getCount());
     }
 }
 

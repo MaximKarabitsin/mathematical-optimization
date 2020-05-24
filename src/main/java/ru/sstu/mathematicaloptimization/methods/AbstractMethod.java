@@ -10,8 +10,8 @@ public abstract class AbstractMethod {
     private Double result;
     protected Double a;
     protected Double b;
-    private Double epsilon;
-    private int count;
+    protected Double epsilon;
+    protected int count;
     protected Double left;
     protected Double funcLeft;
     protected Double right;
@@ -31,7 +31,7 @@ public abstract class AbstractMethod {
         return result;
     }
 
-    private Double calculate() {
+    protected Double calculate() {
         if (b - a < epsilon) return getFinalResult();
         calculateInitialValues();
         while (b - a >= epsilon) {
@@ -47,7 +47,7 @@ public abstract class AbstractMethod {
 
     protected abstract void calculateLeft();
 
-    private Double getFinalResult() {
+    protected Double getFinalResult() {
         return (a + b) / 2;
     }
 
@@ -56,5 +56,21 @@ public abstract class AbstractMethod {
     protected Double getFunctionValue(Double x) {
         numberOfFunctionCalculations++;
         return minimum ? func.apply(x) : -func.apply(x);
+    }
+
+    public int getNumberOfFunctionCalculations() {
+        return numberOfFunctionCalculations;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public Double getA() {
+        return a;
+    }
+
+    public Double getB() {
+        return b;
     }
 }
