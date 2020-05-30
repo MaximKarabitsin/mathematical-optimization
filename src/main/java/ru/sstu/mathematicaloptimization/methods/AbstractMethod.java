@@ -3,9 +3,9 @@ package ru.sstu.mathematicaloptimization.methods;
 import java.util.function.UnaryOperator;
 
 public abstract class AbstractMethod {
+    private static final double DX = .0001;
 
     private UnaryOperator<Double> func;
-    private UnaryOperator<Double> funcMin;
     private int numberOfFunctionCalculations = 0;
     private Double result;
     protected Double a;
@@ -57,6 +57,19 @@ public abstract class AbstractMethod {
         numberOfFunctionCalculations++;
         return minimum ? func.apply(x) : -func.apply(x);
     }
+
+    protected Double getDerive(Double x, int n) {
+        UnaryOperator<Double> derive = func;
+        for (int i = 0; i < n; i++) {
+            derive = derive(derive);
+        }
+        return derive.apply(x);
+    }
+
+    private UnaryOperator<Double> derive(UnaryOperator<Double> f) {
+        return (x) -> (f.apply(x + DX) - f.apply(x)) / DX;
+    }
+
 
     public int getNumberOfFunctionCalculations() {
         return numberOfFunctionCalculations;

@@ -48,9 +48,15 @@ public class Main {
         AbstractMethod method4 = new FibonacciMethod(func, min, max, 0.0001, false);
         System.out.println(method4.getResult());
         System.out.println(method4.getCount());*/
-        AbstractMethod method5 = new PowellMethod(func, min, max, 0.0001, true, 1.0);
+/*        AbstractMethod method5 = new PowellMethod(func, min, max, 0.0001, true, 1.0);
         System.out.println(method5.getResult());
-        System.out.println(method5.getCount());
+        System.out.println(method5.getCount());*/
+   /*     AbstractMethod method6 = new BolzanoMethod(func, min, max, 0.0001, true);
+        System.out.println(method6.getResult());
+        System.out.println(method6.getCount());*/
+        AbstractMethod method7 = new NewtonMethod(func, min, max, 0.0001, true);
+        System.out.println(method7.getResult());
+        System.out.println(method7.getCount());
     }
 }
 
