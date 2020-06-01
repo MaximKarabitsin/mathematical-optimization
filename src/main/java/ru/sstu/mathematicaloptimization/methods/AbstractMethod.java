@@ -43,10 +43,6 @@ public abstract class AbstractMethod {
 
     protected abstract void calculateInitialValues();
 
-    protected abstract void calculateRight();
-
-    protected abstract void calculateLeft();
-
     protected Double getFinalResult() {
         return (a + b) / 2;
     }
@@ -59,6 +55,7 @@ public abstract class AbstractMethod {
     }
 
     protected Double getDerive(Double x, int n) {
+        numberOfFunctionCalculations++;
         UnaryOperator<Double> derive = func;
         for (int i = 0; i < n; i++) {
             derive = derive(derive);
@@ -70,20 +67,11 @@ public abstract class AbstractMethod {
         return (x) -> (f.apply(x + DX) - f.apply(x)) / DX;
     }
 
-
     public int getNumberOfFunctionCalculations() {
         return numberOfFunctionCalculations;
     }
 
     public int getCount() {
         return count;
-    }
-
-    public Double getA() {
-        return a;
-    }
-
-    public Double getB() {
-        return b;
     }
 }

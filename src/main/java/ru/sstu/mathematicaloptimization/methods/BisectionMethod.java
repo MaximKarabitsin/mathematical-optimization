@@ -18,17 +18,7 @@ public class BisectionMethod extends AbstractMethod {
     @Override
     protected void calculateInitialValues() {
         delta /= 2;
-        calculateLeft();
-        calculateRight();
-    }
-
-    @Override
-    protected void calculateRight() {
         right = b - delta;
-    }
-
-    @Override
-    protected void calculateLeft() {
         left = a + delta;
     }
 

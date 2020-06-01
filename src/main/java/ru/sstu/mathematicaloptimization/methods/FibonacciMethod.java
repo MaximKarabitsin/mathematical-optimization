@@ -30,14 +30,12 @@ public class FibonacciMethod extends AbstractMethod {
         funcLeft = getFunctionValue(left);
     }
 
-    @Override
     protected void calculateRight() {
         right = a + getFibonacci(n - count) / getFibonacci(n - count + 1) * (b - a);
     }
 
-    @Override
     protected void calculateLeft() {
-        left = a +  getFibonacci(n - count-1) / getFibonacci(n - count + 1)* (b - a);
+        left = a + getFibonacci(n - count - 1) / getFibonacci(n - count + 1) * (b - a);
     }
 
     @Override

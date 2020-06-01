@@ -20,12 +20,10 @@ public class DichotomyMethod extends AbstractMethod {
         funcLeft = getFunctionValue(left);
     }
 
-    @Override
     protected void calculateRight() {
         right = a + delta * (1 + parameter);
     }
 
-    @Override
     protected void calculateLeft() {
         left = a + delta * (1 - parameter);
     }
@@ -34,7 +32,7 @@ public class DichotomyMethod extends AbstractMethod {
     protected void iteration() {
         if (funcLeft > funcRight) {
             a = left;
-        } else   {
+        } else {
             b = right;
         }
         calculateInitialValues();

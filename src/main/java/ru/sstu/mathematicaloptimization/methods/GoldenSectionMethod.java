@@ -18,13 +18,11 @@ public class GoldenSectionMethod extends AbstractMethod {
         funcLeft = getFunctionValue(left);
     }
 
-    @Override
-    protected void calculateRight() {
+    private void calculateRight() {
         right = a + T * (b - a);
     }
 
-    @Override
-    protected void calculateLeft() {
+    private void calculateLeft() {
         left = a + (1.0 - T) * (b - a);
     }
 

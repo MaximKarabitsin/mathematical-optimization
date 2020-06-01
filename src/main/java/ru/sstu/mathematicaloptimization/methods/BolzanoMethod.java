@@ -22,16 +22,6 @@ public class BolzanoMethod extends AbstractMethod {
     }
 
     @Override
-    protected void calculateRight() {
-
-    }
-
-    @Override
-    protected void calculateLeft() {
-
-    }
-
-    @Override
     protected void iteration() {
         if (deriveFx * deriveFa < 0) {
             b = x;

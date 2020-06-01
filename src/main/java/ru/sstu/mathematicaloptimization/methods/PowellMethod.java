@@ -24,14 +24,6 @@ public class PowellMethod extends AbstractMethod {
     }
 
     @Override
-    protected void calculateRight() {
-    }
-
-    @Override
-    protected void calculateLeft() {
-    }
-
-    @Override
     protected Double calculate() {
         calculateInitialValues();
         while (true) {
